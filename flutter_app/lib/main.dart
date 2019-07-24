@@ -1,9 +1,41 @@
 import 'package:flutter/material.dart';
 
 void main(){
-  runApp(MyApp());
+  runApp(MyAp());
 }
-
+class MyAp extends StatefulWidget{
+  @override
+  MyState createState() => MyState();
+}
+//arraylist
+class MyState extends State<MyAp>{
+  List<int> item = new List();
+  @override
+  void initState() {
+    for(int i = 0;i<25;i++){
+      item.add(i);
+    }
+    super.initState();
+  }
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'array list',
+      home: Scaffold(
+        appBar: AppBar(title: Text('Array of List'),),
+        body: ListView.builder(
+          itemCount: item.length,
+          itemBuilder: (BuildContext context,int index){
+            return ListTile(
+              title: Text('item nomor : $index'),
+              trailing: Icon(Icons.print),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
 class MyApp extends StatelessWidget {
   //baris dan kolom
 //  @override
