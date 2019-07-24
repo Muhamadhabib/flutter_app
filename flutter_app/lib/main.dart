@@ -5,7 +5,44 @@ void main(){
 }
 class MyAp extends StatefulWidget{
   @override
-  MyStates createState() => MyStates();
+  MyStat createState() => MyStat();
+}
+//tabbar
+class MyStat extends State<MyAp> with SingleTickerProviderStateMixin{
+  TabController tabController;
+  @override
+  void initState() {
+    tabController = new TabController(length: 4, vsync: this);
+    super.initState();
+  }
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('TabBar App'),
+          bottom: TabBar(
+            controller: tabController,
+            tabs: <Widget>[
+              Tab(icon: Icon(Icons.home),),
+              Tab(icon: Icon(Icons.dashboard),),
+              Tab(icon: Icon(Icons.data_usage),),
+              Tab(icon: Icon(Icons.close),),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          controller: tabController,
+          children: <Widget>[
+            Center(child: Text('Home'),),
+            Center(child: Text('Dashboard'),),
+            Center(child: Text('Data Usage'),),
+            Center(child: Text('Close'),),
+          ],
+        ),
+      ),
+    );
+  }
 }
 //gridview
 class MyStates extends State<MyAp>{
