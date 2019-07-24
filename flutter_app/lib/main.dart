@@ -5,7 +5,35 @@ void main(){
 }
 class MyAp extends StatefulWidget{
   @override
-  MyState createState() => MyState();
+  MyStates createState() => MyStates();
+}
+//gridview
+class MyStates extends State<MyAp>{
+  List<int> item = new List();
+  @override
+  void initState() {
+    for(int i=0;i<30;i++){
+      item.add(i);
+    }
+    super.initState();
+  }
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: GridView.builder(
+          itemCount: item.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+          itemBuilder: (BuildContext context, int index){
+            return Card(
+              color: Colors.blue,
+              child: Padding(padding: const EdgeInsets.all(25.0)),
+            );
+        },
+        ),
+      ),
+    );
+  }
 }
 //arraylist
 class MyState extends State<MyAp>{
@@ -36,6 +64,7 @@ class MyState extends State<MyAp>{
     );
   }
 }
+
 class MyApp extends StatelessWidget {
   //baris dan kolom
 //  @override
