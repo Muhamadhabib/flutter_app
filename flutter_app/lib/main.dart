@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'hal.dart';
 
 void main(){
-  runApp(MyAp());
+  runApp(MaterialApp(home: MyAp()));
 }
 class MyAp extends StatefulWidget{
   @override
@@ -11,8 +12,7 @@ class MyAp extends StatefulWidget{
 class MySta3 extends State<MyAp>{
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text('Navigasi Drawer'),
           backgroundColor: Colors.deepOrange,
@@ -33,22 +33,29 @@ class MySta3 extends State<MyAp>{
               ListTile(
                 title: Text('Home'),
                 trailing: Icon(Icons.home),
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (BuildContext context)=>Pagebaru('Welcome Home'))
+                ),
               ),
               ListTile(
                 title: Text('Laptop'),
                 trailing: Icon(Icons.laptop),
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (BuildContext context)=>Pagebaru('Welcome Laptop'))
+                ),
               ),
               ListTile(
                 title: Text('Close'),
                 trailing: Icon(Icons.close),
+                onTap: (){
+                  Navigator.pop(context);
+                },
               )
             ],
           ),
         ),
-      ),
-    );
+      );
   }
-
 }
 //button
 class MySta2 extends State<MyAp>{
