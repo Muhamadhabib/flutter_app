@@ -5,7 +5,50 @@ void main(){
 }
 class MyAp extends StatefulWidget{
   @override
-  MySta2 createState() => MySta2();
+  MySta3 createState() => MySta3();
+}
+//drawer
+class MySta3 extends State<MyAp>{
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Navigasi Drawer'),
+          backgroundColor: Colors.deepOrange,
+        ),
+        drawer: Drawer(
+          child: ListView(
+            children: <Widget>[
+              UserAccountsDrawerHeader(
+                accountName: Text('habib'),
+                accountEmail: Text('habib@gmail.com'),
+                currentAccountPicture: CircleAvatar(backgroundColor: Colors.deepPurple,child: Text('P'),),
+                decoration: BoxDecoration(color: Colors.amber),
+                otherAccountsPictures: <Widget>[
+                  CircleAvatar(backgroundColor: Colors.blue,child: Text('X'),),
+                  CircleAvatar(backgroundColor: Colors.black,child: Text('Y'),),
+                ],
+              ),
+              ListTile(
+                title: Text('Home'),
+                trailing: Icon(Icons.home),
+              ),
+              ListTile(
+                title: Text('Laptop'),
+                trailing: Icon(Icons.laptop),
+              ),
+              ListTile(
+                title: Text('Close'),
+                trailing: Icon(Icons.close),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
 }
 //button
 class MySta2 extends State<MyAp>{
