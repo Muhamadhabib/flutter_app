@@ -5,7 +5,39 @@ void main(){
 }
 class MyAp extends StatefulWidget{
   @override
-  MyStat createState() => MyStat();
+  MySta createState() => MySta();
+}
+//textfield
+class MySta extends State<MyAp>{
+  String text = '';
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'TextField',
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.deepPurple,
+          title: Text('TextField'),
+        ),
+        body: Column(
+          children: <Widget>[
+            TextField(
+              onChanged: (String txt){
+                setState(() {
+                  text = txt;
+                });
+              },
+              decoration: InputDecoration(
+                hintText: 'Input Username',
+                labelText: 'Username',
+              ),
+            ),
+            Text(text)
+          ],
+        ),
+      ),
+    );
+  }
 }
 //tabbar
 class MyStat extends State<MyAp> with SingleTickerProviderStateMixin{
@@ -37,7 +69,7 @@ class MyStat extends State<MyAp> with SingleTickerProviderStateMixin{
             Center(child: Text('Home'),),
             Center(child: Text('Dashboard'),),
             Center(child: Text('Data Usage'),),
-            Center(child: Text('Close'),),
+            Center(child: Text('Close '),),
           ],
         ),
       ),
