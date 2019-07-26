@@ -5,7 +5,41 @@ void main(){
 }
 class MyAp extends StatefulWidget{
   @override
-  MySta createState() => MySta();
+  MySta2 createState() => MySta2();
+}
+//button
+class MySta2 extends State<MyAp>{
+  String text = '';
+  void btn(value){
+    setState(() {
+      text = value;
+    });
+  }
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'button',
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.deepOrange,
+          title: Text('button'),
+        ),
+        body: Column(
+          children: <Widget>[
+            RaisedButton(
+              onPressed: (){
+              btn('You Press me madafaka!');
+              },
+              child: Text('Klik Button'),
+            ),
+            FlatButton(onPressed: null, child: Text('The Flat Button')),
+            Text(text)
+          ],
+        ),
+      ),
+    );
+  }
+
 }
 //textfield
 class MySta extends State<MyAp>{
