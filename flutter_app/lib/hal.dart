@@ -9,6 +9,7 @@ class Pagebaru extends StatelessWidget{
     return Scaffold(
         appBar: AppBar(
           title: Text('$menu'),
+          backgroundColor: Colors.deepOrange,
         ),
         body: Center(
           child: Text('$menu'),

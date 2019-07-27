@@ -6,9 +6,57 @@ void main(){
 }
 class MyAp extends StatefulWidget{
   @override
-  MySta3 createState() => MySta3();
+  MySta4 createState() => MySta4();
 }
-//drawer
+//dialog
+class MySta4 extends State<MyAp>{
+  SimpleDialog sd;
+  void dialog(){
+    sd = SimpleDialog(
+      title: Text('Pilih Salah Satu'),
+      children: <Widget>[
+        SimpleDialogOption(
+          child: Text('Jakarta'),
+          onPressed: (){
+            print('Jakarta');
+          },
+        ),
+        SimpleDialogOption(
+          child: Text('Padang'),
+          onPressed: (){
+            print('Padang');
+          },
+        ),
+        SimpleDialogOption(
+          child: Text('Close'),
+          onPressed: (){
+            Navigator.pop(context);
+          },
+        ),
+      ],
+    );
+    // ignore: deprecated_member_use
+    showDialog(context: context,child: sd);
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Notification'),
+        backgroundColor: Colors.deepOrange,
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: (){
+            dialog();
+          },child: Text('Show Simple Dialog'),
+        ),
+      ),
+    );
+  }
+
+}
+//drawer & routes
 class MySta3 extends State<MyAp>{
   @override
   Widget build(BuildContext context) {
