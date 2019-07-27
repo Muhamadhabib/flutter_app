@@ -6,9 +6,47 @@ void main(){
 }
 class MyAp extends StatefulWidget{
   @override
-  MySta4 createState() => MySta4();
+  MySta5 createState() => MySta5();
 }
-//dialog
+//alert dialog
+class MySta5 extends State<MyAp>{
+  void dialog(){
+    showDialog(
+      context: context,
+      // ignore: deprecated_member_use
+      child: AlertDialog(
+        title: Text('Warning'),
+        content: Text('Anda Yakin Ingin Keluar'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.close),
+            onPressed: (){
+              Navigator.pop(context);
+            }
+          ),
+        ],
+      ),
+    );
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Alert Dialog'),
+        backgroundColor: Colors.deepOrange,
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: (){
+            dialog();
+          },
+          child: Text('Alert Dialog'),
+        ),
+      ),
+    );
+  }
+}
+//simple dialog
 class MySta4 extends State<MyAp>{
   SimpleDialog sd;
   void dialog(){
