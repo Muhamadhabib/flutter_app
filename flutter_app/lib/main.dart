@@ -2,11 +2,30 @@ import 'package:flutter/material.dart';
 import 'hal.dart';
 
 void main(){
-  runApp(MaterialApp(home: MyAp()));
+  runApp(MaterialApp(home: MyAp2()));
 }
 class MyAp extends StatefulWidget{
   @override
   MySta5 createState() => MySta5();
+}
+class MyAp2 extends StatelessWidget{
+  final GlobalKey<ScaffoldState> sKey = GlobalKey<ScaffoldState>();
+  void method(){
+    sKey.currentState.showSnackBar(SnackBar(content: Text('this is snacbar')));
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Snacbar'),
+        backgroundColor: Colors.deepOrange,
+      ),
+      key: sKey,
+      body: Center(
+        child: RaisedButton(onPressed: (){method();},child: Text('Snacbar'),),
+      ),
+    );
+  }
 }
 //alert dialog
 class MySta5 extends State<MyAp>{
